@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  rdata:
+    container_name: deepforestr_container
+    image: deepforestr_image
+    command: bash -c "python --version"
+    environment:
+      # If IN_DOCKER is set,
+      # Otherwise use local
+      "IN_DOCKER" : "true"
+      "NOT_CRAN" : "true"
+    build: .

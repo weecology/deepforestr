@@ -1,0 +1,26 @@
+@Article{rs11111309,
+AUTHOR = {Weinstein, Ben G. and Marconi, Sergio and Bohlman, Stephanie and Zare, Alina and White, Ethan},
+TITLE = {Individual Tree-Crown Detection in RGB Imagery Using Semi-Supervised Deep Learning Neural Networks},
+JOURNAL = {Remote Sensing},
+VOLUME = {11},
+YEAR = {2019},
+NUMBER = {11},
+ARTICLE-NUMBER = {1309},
+URL = {https://www.mdpi.com/2072-4292/11/11/1309},
+ISSN = {2072-4292},
+ABSTRACT = {Remote sensing can transform the speed, scale, and cost of biodiversity and forestry surveys. Data acquisition currently outpaces the ability to identify individual organisms in high resolution imagery. We outline an approach for identifying tree-crowns in RGB imagery while using a semi-supervised deep learning detection network. Individual crown delineation has been a long-standing challenge in remote sensing and available algorithms produce mixed results. We show that deep learning models can leverage existing Light Detection and Ranging (LIDAR)-based unsupervised delineation to generate trees that are used for training an initial RGB crown detection model. Despite limitations in the original unsupervised detection approach, this noisy training data may contain information from which the neural network can learn initial tree features. We then refine the initial model using a small number of higher-quality hand-annotated RGB images. We validate our proposed approach while using an open-canopy site in the National Ecological Observation Network. Our results show that a model using 434,551 self-generated trees with the addition of 2848 hand-annotated trees yields accurate predictions in natural landscapes. Using an intersection-over-union threshold of 0.5, the full model had an average tree crown recall of 0.69, with a precision of 0.61 for the visually-annotated data. The model had an average tree detection rate of 0.82 for the field collected stems. The addition of a small number of hand-annotated trees improved the performance over the initial self-supervised model. This semi-supervised deep learning approach demonstrates that remote sensing can overcome a lack of labeled training data by generating noisy data for initial training using unsupervised methods and retraining the resulting models with high quality labeled data.},
+DOI = {10.3390/rs11111309}
+}
+
+@article {Weinstein790071,
+	author = {Weinstein, Ben. G. and Marconi, Sergio and Bohlman, Stephanie A. and Zare, Alina and White, Ethan P.},
+	title = {Geographic Generalization in Airborne RGB Deep Learning Tree Detection},
+	elocation-id = {790071},
+	year = {2019},
+	doi = {10.1101/790071},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {Tree detection is a fundamental task in remote sensing for forestry and ecosystem ecology applications. While many individual tree segmentation algorithms have been proposed, the development and testing of these algorithms is typically site specific, with few methods evaluated against data from multiple forest types simultaneously. This makes it difficult to determine the generalization of proposed approaches, and limits tree detection at broad scales. Using data from the National Ecological Observatory Network we extend a recently developed semi-supervised deep learning algorithm to include data from a range of forest types, determine whether information from one forest can be used for tree detection in other forests, and explore the potential for building a universal tree detection algorithm. We find that the deep learning approach works well for overstory tree detection across forest conditions, outperforming conventional LIDAR-only methods in all forest types. Performance was best in open oak woodlands and worst in alpine forests. When models were fit to one forest type and used to predict another, performance generally decreased, with better performance when forests were more similar in structure. However, when models were pretrained on data from other sites and then fine-tuned using a small amount of hand-labeled data from the evaluation site, they performed similarly to local site models. Most importantly, a universal model fit to data from all sites simultaneously performed as well or better than individual models trained for each local site. This result suggests that RGB tree detection models that can be applied to a wide array of forest types at broad scales should be possible.},
+	URL = {https://www.biorxiv.org/content/early/2019/10/02/790071},
+	eprint = {https://www.biorxiv.org/content/early/2019/10/02/790071.full.pdf},
+	journal = {bioRxiv}
+}
