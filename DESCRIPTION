@@ -13,7 +13,6 @@ Authors@R: c(person("Ben", "G", "Weinstein", role = "aut",
     person("Ethan", "White", role = "aut",
     email = "ethan@weecology.org",
     comment = c(ORCID = "0000-0001-6728-7745")))
-
 BugReports: https://github.com/weecology/DeepForest/issues
 URL: https://github.com/weecology/DeepForest/ (website),
     https://github.com/weecology/DeepForest/
