@@ -78,3 +78,53 @@ py_config()
 ```R
 remotes::install_github("weecology/deepforestr") # development version from GitHub
 ```
+
+## Getting Started
+
+### Load the current release model
+
+```R
+library(deepforestr)
+
+
+model = df_model()
+model.use_release()
+```
+
+### Predict a single image
+
+#### Return the bounding boxes in a data frame
+
+```R
+image_path = get_data("OSBS_029.png") # Gets a path to an example image
+bounding_boxes = model$predict_image(path=image_path, return_plot=FALSE)
+head(bounding_boxes)
+```
+
+#### Return an image for visualization
+
+```R
+image_path = get_data("OSBS_029.png") # Gets a path to an example image
+predicted_image = model$predict_image(path=image_path, return_plot=TRUE)
+plot(raster::as.raster(predicted_raster[,,3:1]/255))
+```
+
+### Predict a tile
+
+#### Return the bounding boxes in a data frame 
+
+```R
+raster_path = get_data("OSBS_029.tif") # Gets a path to an example raster tile
+bounding_boxes = model$predict_tile(raster_path, return_plot=FALSE)
+head(bounding_boxes)
+```
+
+#### Return an image for visualization
+
+```R
+raster_path = get_data("OSBS_029.tif") # Gets a path to an example raster tile
+predicted_raster = model$predict_tile(raster_path, return_plot=TRUE, patch_size=300L, patch_overlap=0.25)
+plot(raster::as.raster(predicted_raster[,,3:1]/255))
+```
+
+Note at `patch_size` is an integer value in Python and therefore needs to have the `L` at the end of the number in R to make it an integer.
