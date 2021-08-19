@@ -2,18 +2,17 @@
 % Please edit documentation in R/deepforestr.R
 \name{get_data}
 \alias{get_data}
-\title{Check for updates}
+\title{Get example data}
 \usage{
-get_data(repo = "")
+get_data(path)
 }
 \arguments{
-\item{repo}{path to the repository}
+\item{path}{path to the example data file}
 }
 \description{
-Check for updates
+Get example data
 }
 \examples{
-\donttest{
-deepforest::get_data()
-}
+deepforest::get_data("OSBS_029.png")
+
 }

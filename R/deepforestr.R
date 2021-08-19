@@ -1,16 +1,15 @@
-#' Check for updates
+#' Get example data
 #'
-#' @param repo path to the repository
+#' @param path path to the example data file
 #'
 #' @examples
-#' \donttest{
-#' deepforest::get_data()
-#' }
+#' deepforest::get_data("OSBS_029.png")
+#'
 #' @importFrom reticulate import r_to_py
 #' @export
-get_data <- function(repo = "") {
-  writeLines(strwrap("Please wait while the retriever updates its scripts, ..."))
-  deepforest$get_data(repo)
+get_data <- function(path) {
+  deepforest$get_data(path)
+}
 }
 
 # global reference to python modules (will be initialized in .onLoad)
