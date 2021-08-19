@@ -10,6 +10,16 @@
 get_data <- function(path) {
   deepforest$get_data(path)
 }
+
+#' Deepforest Model object
+#' 
+#' @examples
+#' deepforest::df_model()
+#'
+#' @importFrom reticulate import r_to_py
+#' @export
+df_model <- function() {
+  deepforest$main$deepforest()
 }
 
 # global reference to python modules (will be initialized in .onLoad)
