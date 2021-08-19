@@ -1,5 +1,8 @@
 # deepforestr
 
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+
 R interface for [DeepForest](github.com/weecology/DeepForest) Python package, a deep learning package detecting  individual organisms in airborne RGB images.
 
 ## Installation
@@ -15,7 +18,7 @@ This will create a local Python installation that will only be used by R and ins
 ```R
 install.packages('reticulate') # Install R package for interacting with Python
 reticulate::install_miniconda() # Install Python
-reticulate::py_install('DeepForest', pip=True) # Install the Python retriever package
+reticulate::py_install('DeepForest', pip=TRUE) # Install the Python retriever package
 install.packages('deepforestr') # Install the R package for running the retriever
 ```
 
