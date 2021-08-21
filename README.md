@@ -86,9 +86,8 @@ remotes::install_github("weecology/deepforestr") # development version from GitH
 ```R
 library(deepforestr)
 
-
 model = df_model()
-model.use_release()
+model$use_release()
 ```
 
 ### Predict a single image
@@ -128,3 +127,65 @@ plot(raster::as.raster(predicted_raster[,,3:1]/255))
 ```
 
 Note at `patch_size` is an integer value in Python and therefore needs to have the `L` at the end of the number in R to make it an integer.
+
+### Predict a set of annotations
+
+```R
+csv_file = get_data("testfile_deepforest.csv")
+root_dir = get_data(".")
+boxes = model$predict_file(csv_file=csv_file, root_dir = root_dir, savedir=".")
+```
+
+### Training
+
+#### Set the training configuration
+
+```R
+annotations_file = get_data("testfile_deepforest.csv")
+
+model$config$epochs = 1
+model$config["save-snapshot"] = FALSE
+model$config$train$csv_file = annotations_file
+model$config$train$root_dir = get_data(".")
+```
+
+Optionally turn on `fast_dev_run` for testing and debugging:
+
+```R
+model$config$train$fast_dev_run = TRUE
+```
+
+#### Train the model
+
+```R
+model$create_trainer()
+model$trainer$fit(model)
+```
+
+### Evaluation
+
+```R
+csv_file = get_data("OSBS_029.csv")
+root_dir = get_data(".")
+results = model$evaluate(csv_file, root_dir, iou_threshold = 0.4)
+```
+
+### Saving & Loading Models
+
+#### Saving a model after training
+
+```R
+model$trainer$save_checkpoint("checkpoint.pl")
+```
+
+#### Loading a saved model
+
+```R
+new_model = df_model()
+after = new_model$load_from_checkpoint("checkpoint.pl")
+pred_after_reload = after$predict_image(path = img_path)
+```
+
+*Note that when reloading models, you should carefully inspect the model parameters, such as the score_thresh and nms_thresh.
+These parameters are updated during model creation and the config file is not read when loading from checkpoint!
+It is best to be direct to specify after loading checkpoint.*
