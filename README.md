@@ -1,7 +1,7 @@
 # deepforestr
 
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+[![R-CMD-check-release](https://github.com/weecology/deepforestr/actions/workflows/test-package.yml/badge.svg)](https://github.com/weecology/deepforestr/actions/workflows/test-package.yml)
 
 R interface for [DeepForest](github.com/weecology/DeepForest) Python package, a deep learning package detecting  individual organisms in airborne RGB images.
 
