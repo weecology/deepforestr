@@ -21,8 +21,14 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - name: Install package dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck"), repos = c("CRAN" = Sys.getenv("CRAN_REPO")))
+          install.packages(c("remotes", "rcmdcheck", "reticulate"), repos = c("CRAN" = Sys.getenv("CRAN_REPO")))
           remotes::install_deps(dependencies = TRUE, repos = c("CRAN" = Sys.getenv("CRAN_REPO")))
+        shell: Rscript {0}
+      - name: Install DeepForest
+        run: |
+          reticulate::install_miniconda()
+          reticulate::py_install('DeepForest', pip=TRUE)
+          install.packages('deepforestr')
         shell: Rscript {0}
       - name: Check
         run: |
