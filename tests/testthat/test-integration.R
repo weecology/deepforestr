@@ -2,9 +2,19 @@ library(testthat)
 
 context("integration tests for DeepForest in R")
 
+test_that("deepforest model is installed", {
+    
+    # Python package not installed on CRAN
+
+    skip_on_cran() 
+
+  deepforest_available = reticulate::py_module_available("deepforest")
+  expect_identical(deepforest_available, TRUE)
+})
+
 test_that("deepforest model exists when loaded", {
 
-  # download is held back on cran
+  # Python package not installed on CRAN
 
     skip_on_cran() 
   
@@ -15,7 +25,7 @@ test_that("deepforest model exists when loaded", {
 
 test_that("use_release model exists when loaded", {
 
-  # download is held back on cran
+  # Python package not installed on CRAN
 
     skip_on_cran() 
   
@@ -27,7 +37,7 @@ test_that("use_release model exists when loaded", {
 
 test_that("image prediction works", {
 
-  # download is held back on cran
+  # Python package not installed on CRAN
 
     skip_on_cran() 
   
