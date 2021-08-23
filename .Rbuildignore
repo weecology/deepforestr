@@ -1,0 +1,8 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^CONTRIBUTING\.md$
+^CODE_OF_CONDUCT\.md$
+^LICENSE\.md$
+^\.zenodo\.json$
+^codecov\.yml$
+^\.github$
