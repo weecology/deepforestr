@@ -10,6 +10,6 @@ df_model()
 Deepforest Model object
 }
 \examples{
-deepforest::df_model()
+deepforestr::df_model()
 
 }

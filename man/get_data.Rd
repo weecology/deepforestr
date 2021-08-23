@@ -13,6 +13,6 @@ get_data(path)
 Get example data
 }
 \examples{
-deepforest::get_data("OSBS_029.png")
+deepforestr::get_data("OSBS_029.png")
 
 }

@@ -3,7 +3,7 @@
 #' @param path path to the example data file
 #'
 #' @examples
-#' deepforest::get_data("OSBS_029.png")
+#' deepforestr::get_data("OSBS_029.png")
 #'
 #' @importFrom reticulate import r_to_py
 #' @export
@@ -14,7 +14,7 @@ get_data <- function(path) {
 #' Deepforest Model object
 #' 
 #' @examples
-#' deepforest::df_model()
+#' deepforestr::df_model()
 #'
 #' @importFrom reticulate import r_to_py
 #' @export
