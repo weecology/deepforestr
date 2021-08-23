@@ -47,5 +47,5 @@ test_that("image prediction works", {
   model$use_release()
   image_path = get_data("OSBS_029.png")
   bounding_boxes = model$predict_image(path=image_path, return_plot=FALSE)
-  expect_identical(nrow(bounding_boxes), 56)
+  expect_equal(nrow(bounding_boxes), 56)
 })
