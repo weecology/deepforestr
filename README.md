@@ -14,12 +14,15 @@ This means that *Python* and the `DeepForest` Python package need to be installe
 
 If you just want to use DeepForest from within R run the following commands in R.
 This will create a local Python installation that will only be used by R and install the needed Python package for you.
+If installing on Windows you need to [install RTools](https://cran.r-project.org/bin/windows/Rtools/) before installing the R package.
 
 ```R
 install.packages('reticulate') # Install R package for interacting with Python
 reticulate::install_miniconda() # Install Python
+reticulate::py_install(c('gdal', 'rasterio', 'fiona')) # Install spatial dependencies via conda
 reticulate::py_install('DeepForest', pip=TRUE) # Install the Python retriever package
-install.packages('deepforestr') # Install the R package for running the retriever
+devtools::install_github('weecology/deepforestr') # Install the R package for running the retriever
+install.packages('raster') # For visualizing output for rasters
 ```
 
 **After running these commands restart R.**
