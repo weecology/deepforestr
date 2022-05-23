@@ -1,0 +1,14 @@
+citHeader("To cite DeepForest in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "DeepForest: A Python package for RGB deep learning tree crown delineation",
+  author   = "Weinstein, Ben G. and Marconi, Sergio and Aubry-Kientz, Mélaine and Vincent, Gregoire and Senyondo, Henry and White, Ethan P.",
+  journal  = "Methods in Ecology and Evolution",
+  year     = 2020,
+  volume   = 11,
+  number   = 12,
+  pages    = 1743-1751,
+  url      = "https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13472",
+  textVersion = paste("Weinstein, BG, Marconi, S, Aubry-Kientz, M, Vincent, G, Senyondo, H, White, EP. DeepForest: A Python package for RGB deep learning tree crown delineation. Methods Ecol Evol. 2020; 11: 1743– 1751. https://doi.org/10.1111/2041-210X.13472")
+)
