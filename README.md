@@ -21,6 +21,7 @@ If installing on Windows you need to [install RTools](https://cran.r-project.org
 install.packages('reticulate') # Install R package for interacting with Python
 reticulate::install_miniconda() # Install Python
 reticulate::py_install(c('gdal', 'rasterio', 'fiona')) # Install spatial dependencies via conda
+reticulate::conda_remove('r-reticulate', packages = c('mkl')) # Remove package that causes conflicts on Windows (and maybe macOS)
 reticulate::py_install('DeepForest', pip=TRUE) # Install the Python retriever package
 devtools::install_github('weecology/deepforestr') # Install the R package for running the retriever
 install.packages('raster') # For visualizing output for rasters
