@@ -110,7 +110,7 @@ head(bounding_boxes)
 ```R
 image_path = get_data("OSBS_029.png") # Gets a path to an example image
 predicted_image = model$predict_image(path=image_path, return_plot=TRUE)
-plot(raster::as.raster(predicted_raster[,,3:1]/255))
+plot(raster::as.raster(predicted_image[,,3:1]/255))
 ```
 
 ### Predict a tile
