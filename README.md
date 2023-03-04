@@ -21,6 +21,7 @@ If installing on Windows you need to [install RTools](https://cran.r-project.org
 install.packages('reticulate') # Install R package for interacting with Python
 reticulate::install_miniconda() # Install Python
 reticulate::py_install(c('gdal', 'rasterio', 'fiona')) # Install spatial dependencies via conda
+reticulate::conda_remove('r-reticulate', packages = c('mkl')) # Remove package that causes conflicts on Windows (and maybe macOS)
 reticulate::py_install('DeepForest', pip=TRUE) # Install the Python retriever package
 devtools::install_github('weecology/deepforestr') # Install the R package for running the retriever
 install.packages('raster') # For visualizing output for rasters
@@ -109,7 +110,7 @@ head(bounding_boxes)
 ```R
 image_path = get_data("OSBS_029.png") # Gets a path to an example image
 predicted_image = model$predict_image(path=image_path, return_plot=TRUE)
-plot(raster::as.raster(predicted_raster[,,3:1]/255))
+plot(raster::as.raster(predicted_image[,,3:1]/255))
 ```
 
 ### Predict a tile
