@@ -49,3 +49,20 @@ test_that("image prediction works", {
   bounding_boxes = model$predict_image(path=image_path, return_plot=FALSE)
   expect_equal(nrow(bounding_boxes), 56)
 })
+
+test_that("training works", {
+
+  skip_on_cran()
+
+  model = df_model()
+  model$use_release()
+  annotations_file = get_data("testfile_deepforest.csv")
+  model$config$epochs = 1
+  model$config["save-snapshot"] = FALSE
+  model$config$train$csv_file = annotations_file
+  model$config$train$root_dir = get_data(".")
+  model$config$train$fast_dev_run = TRUE
+  model$create_trainer()
+  model$trainer$fit(model)
+  expect_type(model, "closure")
+})
