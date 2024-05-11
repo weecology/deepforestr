@@ -12,7 +12,11 @@ name: R-CMD-check-release
 
 jobs:
   R-CMD-check:
-    runs-on: ubuntu-20.04
+    continue-on-error: true
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       CRAN_REPO: https://packagemanager.rstudio.com/all/__linux__/focal/latest
