@@ -62,14 +62,23 @@ Alternatively you can select the Python environment through the `reticulate` pac
 
 ```R
 library(reticulate)
-use_conda('name_of_conda_environment')
+conda_create("name_of_environment")
+
+# install Python packages e.g SciPy, deepforest
+conda_install("name_of_environment", "scipy", "deepforest")
+use_condaenv('name_of_environment')
 ```
 
 or `virtualenv`:
 
 ```R
 library(reticulate)
-use_virtualenv("path_to_virtualenv_environment")
+# create a new environment
+virtualenv_create("name_of_environment")
+
+# install Python packages
+virtualenv_install("name_of_environment", "scipy", "deepforest")
+use_virtualenv("name_of_environment")
 ```
 
 You can check to see which Python environment is being used with:
