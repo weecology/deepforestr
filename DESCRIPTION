@@ -4,7 +4,7 @@ Description: Provides an R interface to the Deepforest
     <https://deepforest.readthedocs.io/en/latest/> via the Deepforest's
     command line interface. The Deepforest is a python package for training and predicting individual tree crowns from airborne RGB imagery.
 Version: 0.0.2
-Authors@R: c(person("Ben", "G", "Weinstein", role = "aut",
+Authors@R: c(person("Ben", "Weinstein", role = "aut",
     email = "benweinstein2010@gmail.com",
     comment = c(ORCID = "0000-0002-2176-7935")),
     person("Henry", "Senyondo", role = c("aut", "cre"),
