@@ -36,7 +36,7 @@ jobs:
             if torch.backends.mps.is_available():
                 if torch.backends.mps.is_built():
                     torch.mps.set_per_process_memory_fraction(0.0)
-                    mps_device = torch.device("mps")
+                    mps_device = torch.device("cpu")
                     x = torch.ones(1, device=mps_device)
                     print (x)
                 else:
