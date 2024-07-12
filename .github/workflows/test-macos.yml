@@ -34,6 +34,16 @@ jobs:
         with:
           extra-packages: any::rcmdcheck
           needs: check
+      - name: Check MPS support
+        run: |
+            import torch
+            if torch.backends.mps.is_available():
+                mps_device = torch.device("mps")
+                x = torch.ones(1, device=mps_device)
+                print (x)
+            else:
+                print ("MPS device not found.")
+        shell: python {0}
       - name: Install & check deepforestr
         uses: r-lib/actions/check-r-package@v2
         with:
