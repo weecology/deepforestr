@@ -12,7 +12,7 @@ on:
 name: MacOS Check
 
 jobs:
-  R-CMD-check:
+  macOS-check:
     strategy:
       fail-fast: false
     runs-on: macos-latest
@@ -40,12 +40,15 @@ jobs:
         run: |
             import torch
             if torch.backends.mps.is_available():
-                torch.mps.set_per_process_memory_fraction(0.0)
-                mps_device = torch.device("mps")
-                x = torch.ones(1, device=mps_device)
-                print (x)
+                if torch.backends.mps.is_built():
+                    torch.mps.set_per_process_memory_fraction(0.0)
+                    mps_device = torch.device("mps")
+                    x = torch.ones(1, device=mps_device)
+                    print (x)
+                else:
+                    print("Pytorch not built with MPS enabled")
             else:
-                print ("MPS device not found.")
+                print("MPS device not found.")
         shell: python {0}
       - name: Install & check deepforestr
         uses: r-lib/actions/check-r-package@v2
