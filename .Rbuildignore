@@ -10,3 +10,4 @@
 ^docker-compose.yml$
 ^load_and_test.R$
 ^LICENSE.md$
+paper$
