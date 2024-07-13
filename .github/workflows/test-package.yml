@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.os }}
     env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CRAN_REPO: https://packagemanager.rstudio.com/all/__linux__/focal/latest
     steps:
       - uses: actions/checkout@v2
