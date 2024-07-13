@@ -6,3 +6,6 @@
 ^\.zenodo\.json$
 ^codecov\.yml$
 ^\.github$
+^Dockerfile$
+^docker-compose.yml$
+^load_and_test.R$
