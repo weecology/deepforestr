@@ -14,14 +14,14 @@ jobs:
   R-CMD-check:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-13]
       fail-fast: false
     runs-on: ${{ matrix.os }}
     env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CRAN_REPO: https://packagemanager.rstudio.com/all/__linux__/focal/latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup R (Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         uses: eddelbuettel/github-actions/r2u-setup@master
