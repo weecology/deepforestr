@@ -4,18 +4,15 @@ Description: Provides an R interface to the Deepforest
     <https://deepforest.readthedocs.io/en/latest/> via the Deepforest's
     command line interface. The Deepforest is a python package for training and predicting individual tree crowns from airborne RGB imagery.
 Version: 0.0.2
-Authors@R: c(person("Ben", "G", "Weinstein", role = "aut",
-    email = "benweinstein2010@gmail.com",
-    comment = c(ORCID = "0000-0002-2176-7935")),
-    person("Henry", "Senyondo", role = c("aut", "cre"),
+Authors@R: c(person("Ethan", "White", role = c("aut", "cre"),
+    email = "ethan@weecology.org",
+    comment = c(ORCID = "0000-0001-6728-7745")),
+    person("Henry", "Senyondo", role = c("aut"),
     email = "henrykironde@gmail.com",
     comment = c(ORCID = "0000-0001-7105-5808")),
-    person("Weecology", role = "cph",
-    email = "weecologydeploy@weecology.org",
-    comment = c(ORCID = "0000-0000-0000-0000")),
-    person("Ethan", "White", role = "aut",
-    email = "ethan@weecology.org",
-    comment = c(ORCID = "0000-0001-6728-7745")))
+    person("Ben", "Weinstein", role = "aut",
+    email = "benweinstein2010@gmail.com",
+    comment = c(ORCID = "0000-0002-2176-7935")))
 BugReports: https://github.com/weecology/DeepForest/issues
 URL: https://github.com/weecology/DeepForest/ (website),
     https://github.com/weecology/DeepForest/
