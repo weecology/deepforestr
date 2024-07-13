@@ -37,10 +37,6 @@ jobs:
         run: |
           reticulate::install_miniconda()
           reticulate::py_install('DeepForest', pip=TRUE)
-          install.packages('deepforestr')
         shell: Rscript {0}
-      - name: Check
-        run: |
-          options(crayon.enabled = TRUE)
-          rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
-        shell: Rscript {0}
+      - name: Build and check deepforester
+        uses: r-lib/actions/check-r-package@v2
