@@ -3,7 +3,9 @@
 #' @param path path to the example data file
 #'
 #' @examples
+#' \dontrun{
 #' deepforestr::get_data("OSBS_029.png")
+#' }
 #'
 #' @importFrom reticulate import r_to_py
 #' @export
@@ -12,10 +14,11 @@ get_data <- function(path) {
 }
 
 #' Deepforest Model object
-#' 
-#' @examples
-#' deepforestr::df_model()
 #'
+#' @examples
+#' \dontrun{
+#' model = deepforestr::df_model()
+#' }
 #' @importFrom reticulate import r_to_py
 #' @export
 df_model <- function() {

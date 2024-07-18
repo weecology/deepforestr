@@ -10,6 +10,7 @@ df_model()
 Deepforest Model object
 }
 \examples{
-deepforestr::df_model()
-
+\dontrun{
+model = deepforestr::df_model()
+}
 }

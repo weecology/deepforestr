@@ -13,6 +13,8 @@ get_data(path)
 Get example data
 }
 \examples{
+\dontrun{
 deepforestr::get_data("OSBS_029.png")
+}
 
 }
