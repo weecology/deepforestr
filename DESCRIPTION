@@ -24,10 +24,11 @@ Suggests:
     testthat (>= 1.0.0),
     devtools,
     knitr,
+    raster,
     rmarkdown
 VignetteBuilder: knitr
 SystemRequirements: Python (>= 3.0) (version must be listed to patch to allow parsing)
 License: MIT + file LICENSE
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Encoding: UTF-8
