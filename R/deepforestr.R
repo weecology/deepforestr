@@ -1,26 +1,50 @@
 #' Install the DeepForest Python package
 #'
+#' The package will be installed into it's own conda environment 'r-deepforest'
+#' by default. If conda is already installed on the system the existing version
+#' will be used. If it is not installed then it will be automatically installed.
+#'
+#' @param envname Name of conda environment for installing deepforest
+#'
+#' @param restart_session Restart R session after installing (note this will
+#'   only occur within RStudio).
+#'
+#' @param new_env If `TRUE`, any existing conda environment specified by
+#'   `envname` is deleted first.
+#'
+#' @param ... other arguments passed to [`reticulate::conda_install()`]
+#'
 #' @examples
 #' \dontrun{
 #' deepforestr::install_deepforest()}
 #'
-#' @importFrom reticulate install_miniconda py_install conda_remove
+#'
+#' @importFrom reticulate install_miniconda py_install conda_remove conda_binary
 #' @export
-install_deepforest <- function() {
-  miniconda_path = reticulate::miniconda_path()
-  if (!dir.exists(miniconda_path)) {
-    reticulate::install_miniconda()
+install_deepforest <- function(envname = "r-deepforest",
+                               restart_session = TRUE,
+                               new_env = identical(envname, "r-deepforest"),
+                               ...) {
+  if (is.null(tryCatch(conda_binary(), error = function(e) NULL))) {
+    install_miniconda()
   } else {
-    print(sprintf("Using existing miniconda install at %s", miniconda_path))
+    print(sprintf("Using existing miniconda install at %s", conda_binary()))
   }
-  reticulate::py_install(c("gdal", "rasterio", "fiona"), method = "conda")
-  #if (reticulate::py_module_available("mkl")) {
+  deps <- c("gdal", "rasterio", "fiona")
+  py_install(deps, envname = envname, method = "conda", ...)
+  #if (py_module_available("mkl")) {
     # Remove package that has caused conflicts on Windows due to double install
     # The correct version of mkl will be installed with deepforest (below)
     # on systems where it is needed
-  #  reticulate::conda_remove("r-reticulate", packages = c("mkl"))
+  #  reticulate::conda_remove(envname, packages = c("mkl"))
   #}
-  reticulate::py_install("DeepForest", method = "conda", pip = TRUE)
+  py_install("DeepForest", envname = envname, method = "conda", pip = TRUE)
+
+  if (restart_session && rstudioapi::hasFun("restartSession")){
+    rstudioapi::restartSession()
+  }
+
+  invisible(NULL)
 }
 
 #' Get example data
@@ -54,10 +78,6 @@ df_model <- function() {
 deepforest <- NULL
 
 .onLoad <- function(libname, pkgname) {
-  ## assignment in parent environment!
-  try({
-    deepforest <<- reticulate::import("deepforest", delay_load = TRUE)
-    # Disable due to failure to test on win cran dev platform
-    # check_deepforest_availability()
-  }, silent = TRUE)
+  reticulate::use_condaenv("r-deepforest", required = FALSE)
+  deepforest <<- reticulate::import("deepforest", delay_load = TRUE)
 }
