@@ -4,12 +4,12 @@
 [![R-CMD-check-release](https://github.com/weecology/deepforestr/actions/workflows/test-package.yml/badge.svg)](https://github.com/weecology/deepforestr/actions/workflows/test-package.yml)
 [![CRAN status](https://www.r-pkg.org/badges/version/deepforestr)](https://CRAN.R-project.org/package=deepforestr)
 
-R interface for [DeepForest](github.com/weecology/DeepForest) Python package, a deep learning package detecting  individual organisms in airborne RGB images.
+R interface for [DeepForest](github.com/weecology/DeepForest) Python package, a deep learning package detecting individual organisms in airborne RGB images.
 
 ## Installation
 
 `deepforestr` is an R wrapper for the Python package, [DeepForest](https://deepforest.readthedocs.io/en/latest/).
-This means that *Python* and the `DeepForest` Python package need to be installed first.
+This means that _Python_ and the `DeepForest` Python package need to be installed first
 
 ### Basic Installation
 
@@ -119,7 +119,7 @@ plot(raster::as.raster(predicted_image[,,3:1]/255))
 
 ### Predict a tile
 
-#### Return the bounding boxes in a data frame 
+#### Return the bounding boxes in a data frame
 
 ```R
 raster_path = get_data("OSBS_029.tif") # Gets a path to an example raster tile
@@ -195,6 +195,6 @@ after = new_model$load_from_checkpoint("checkpoint.pl")
 pred_after_reload = after$predict_image(path = img_path)
 ```
 
-*Note that when reloading models, you should carefully inspect the model parameters, such as the score_thresh and nms_thresh.
+_Note that when reloading models, you should carefully inspect the model parameters, such as the score_thresh and nms_thresh.
 These parameters are updated during model creation and the config file is not read when loading from checkpoint!
-It is best to be direct to specify after loading checkpoint.*
+It is best to be direct to specify after loading checkpoint._
