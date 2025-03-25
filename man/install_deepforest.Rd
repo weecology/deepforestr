@@ -4,13 +4,32 @@
 \alias{install_deepforest}
 \title{Install the DeepForest Python package}
 \usage{
-install_deepforest()
+install_deepforest(
+  envname = "r-deepforest",
+  restart_session = TRUE,
+  new_env = identical(envname, "r-deepforest"),
+  ...
+)
+}
+\arguments{
+\item{envname}{Name of conda environment for installing deepforest}
+
+\item{restart_session}{Restart R session after installing (note this will
+only occur within RStudio).}
+
+\item{new_env}{If `TRUE`, any existing conda environment specified by
+`envname` is deleted first.}
+
+\item{...}{other arguments passed to [`reticulate::conda_install()`]}
 }
 \description{
-Install the DeepForest Python package
+The package will be installed into it's own conda environment 'r-deepforest'
+by default. If conda is already installed on the system the existing version
+will be used. If it is not installed then it will be automatically installed.
 }
 \examples{
 \dontrun{
 deepforestr::install_deepforest()}
+
 
 }

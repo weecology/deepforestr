@@ -3,6 +3,7 @@
 export(df_model)
 export(get_data)
 export(install_deepforest)
+importFrom(reticulate,conda_binary)
 importFrom(reticulate,conda_remove)
 importFrom(reticulate,import)
 importFrom(reticulate,install_miniconda)
